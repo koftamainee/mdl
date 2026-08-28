@@ -75,25 +75,10 @@ If nil, `tab-width' (which EditorConfig sets per buffer) is used."
     table)
   "Syntax table for `mdl-ts-mode'.")
 
-(defun mdl-ts-mode--closing-bracket-p ()
-  "Return a predicate for lines ending a block.
-True when the first non-whitespace character on the line is a
-closing bracket (`}' or `]')."
-  (lambda (_node _parent bol)
-    (save-excursion
-      (goto-char bol)
-      (skip-chars-forward " \t")
-      (looking-at "[}\]]"))))
-
-(defun mdl-ts-mode--block-open-anchor (_node parent _bol)
-  "Return the start position of PARENT (the object/list being closed).
-Aligned to the opening brace's indentation rather than the line's
-beginning, unlike `parent-bol'."
-  (treesit-node-start parent))
-
 (defvar mdl-ts-mode--indent-rules
   `((mdl
-     ((mdl-ts-mode--closing-bracket-p) mdl-ts-mode--block-open-anchor 0)
+     ((node-is "}") parent-bol 0)
+     ((node-is "]") parent-bol 0)
      ((parent-is "object") parent-bol ,(lambda (_n _p _b) (or mdl-ts-indent-offset tab-width)))
      ((parent-is "list") parent-bol ,(lambda (_n _p _b) (or mdl-ts-indent-offset tab-width)))))
   "Tree-sitter indent rules.")
