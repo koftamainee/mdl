@@ -117,6 +117,26 @@ Used by `which-func'."
   (when (string= (treesit-node-type node) "pair")
     (mdl-ts-mode--imenu-name node)))
 
+(defun mdl-ts-mode--grammar-available-p ()
+  "Return t when the MDL tree-sitter grammar can be loaded."
+  (and (fboundp 'treesit-language-available-p)
+       (treesit-language-available-p 'mdl)))
+
+;;;###autoload
+(define-derived-mode mdl-mode prog-mode "MDL"
+  "Major mode for editing MDL files.
+When the `mdl' tree-sitter grammar is available this hands over to
+`mdl-ts-mode'; otherwise edit with basic syntax support instead of
+falling back to `fundamental-mode'."
+  :group 'mdl-ts
+  :syntax-table mdl-ts-mode--syntax-table
+  (setq-local comment-start "# "
+              comment-end ""
+              comment-start-skip "#[ \t]*"
+              comment-start-line-regexp "#")
+  (when (mdl-ts-mode--grammar-available-p)
+    (mdl-ts-mode)))
+
 ;;;###autoload
 (define-derived-mode mdl-ts-mode prog-mode "MDL"
   "Major mode for editing MDL files, powered by tree-sitter."
@@ -161,21 +181,13 @@ Used by `which-func'."
 
     (treesit-major-mode-setup)))
 
-;;;###autoload
-(defun mdl-ts-mode-maybe ()
-  "Enable `mdl-ts-mode' when its grammar is available.
-Also propose to install the grammar when `treesit-enabled-modes'
-is t or contains the mode name."
-  (declare-function treesit-language-available-p "treesit.c")
-  (if (or (treesit-language-available-p 'mdl)
-          (eq treesit-enabled-modes t)
-          (memq 'mdl-ts-mode treesit-enabled-modes))
-      (mdl-ts-mode)
-    (fundamental-mode)))
+(derived-mode-add-parents 'mdl-ts-mode '(mdl-mode))
 
 ;;;###autoload
 (when (boundp 'treesit-major-mode-remap-alist)
-  (add-to-list 'auto-mode-alist '("\\.mdl\\'" . mdl-ts-mode-maybe)))
+  (add-to-list 'auto-mode-alist '("\\.mdl\\'" . mdl-mode))
+  ;; To be able to toggle between the tree-sitter mode and its base.
+  (add-to-list 'treesit-major-mode-remap-alist '(mdl-mode . mdl-ts-mode)))
 
 (provide 'mdl-ts-mode)
 
