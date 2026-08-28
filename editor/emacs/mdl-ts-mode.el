@@ -85,9 +85,15 @@ closing bracket (`}' or `]')."
       (skip-chars-forward " \t")
       (looking-at "[}\]]"))))
 
+(defun mdl-ts-mode--block-open-anchor (_node parent _bol)
+  "Return the start position of PARENT (the object/list being closed).
+Aligned to the opening brace's indentation rather than the line's
+beginning, unlike `parent-bol'."
+  (treesit-node-start parent))
+
 (defvar mdl-ts-mode--indent-rules
   `((mdl
-     ((mdl-ts-mode--closing-bracket-p) parent-bol 0)
+     ((mdl-ts-mode--closing-bracket-p) mdl-ts-mode--block-open-anchor 0)
      ((parent-is "object") parent-bol ,(lambda (_n _p _b) (or mdl-ts-indent-offset tab-width)))
      ((parent-is "list") parent-bol ,(lambda (_n _p _b) (or mdl-ts-indent-offset tab-width)))))
   "Tree-sitter indent rules.")
