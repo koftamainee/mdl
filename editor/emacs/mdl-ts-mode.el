@@ -29,8 +29,7 @@
 ;; Tree-sitter based major mode for editing MDL (Mantle Data Language)
 ;; files, as used by the Mantle Game Engine.
 
-;; MDL is a data declaration language with a JSON-like, but more
-;; verbose, syntax:
+;; MDL is a data declaration language with a JSON-like:
 ;;     shader pbr
 ;;     stages {
 ;;       vertex { src shaders/pbr.slang }
@@ -41,7 +40,7 @@
 ;; index built from project keys.
 
 ;; Indentation follows `mdl-ts-indent-offset', falling back to
-;; `tab-width'.  This lets EditorConfig (as used by Doom Emacs) control
+;; `tab-width'.  This lets EditorConfig control
 ;; indentation through the standard `editorconfig-indentation-alist'
 ;; hook, which sets `tab-width' and friends per buffer.
 
@@ -65,7 +64,7 @@
   "Indentation offset for MDL object/list bodies.
 If nil, `tab-width' (which EditorConfig sets per buffer) is used."
   :type '(choice (const :tag "Use tab-width" nil)
-                 (integer :tag "Offset"))
+          (integer :tag "Offset"))
   :group 'mdl-ts)
 
 (defvar mdl-ts-mode--syntax-table
