@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "mdl",
+      "camelcase": "Mdl",
+      "title": "Mantle Data Language",
+      "scope": "source.mdl",
+      "file-types": [
+        "mdl"
+      ],
+      "injection-regex": "^mdl$",
+      "class-name": "TreeSitterMdl"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Data definition language for Mantle Game Engine",
+    "authors": [
+      {
+        "name": "koftamainee",
+        "email": "dev@koftamainee.ru",
+        "url": ""
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/koftamainee/mdl",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
