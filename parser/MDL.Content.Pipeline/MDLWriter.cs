@@ -5,8 +5,15 @@ using MDL.Core;
 
 namespace MDL.Content.Pipeline;
 
+
+[ContentTypeWriter]
 public class MDLWriter : ContentTypeWriter<MDLDocument>
 {
+    public override string GetRuntimeType(TargetPlatform targetPlatform)
+    {
+        return typeof(MDLDocument).AssemblyQualifiedName!;
+    }
+
     public override string GetRuntimeReader(TargetPlatform targetPlatform)
     {
         return "MDL.Content.MDLReader, MDL.Content";

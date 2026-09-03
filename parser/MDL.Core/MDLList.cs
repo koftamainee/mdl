@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MDL.Core;
 
@@ -18,4 +19,22 @@ public sealed class MDLList : MDLValue
 
     /// <summary>Appends an item to the list.</summary>
     public void Add(MDLValue value) => _items.Add(value);
+
+    /// <summary>The items in order.</summary>
+    public IEnumerable<MDLValue> Values() => _items;
+
+    /// <summary>The items that are objects, in order.</summary>
+    public IEnumerable<MDLObject> Objects() => _items.OfType<MDLObject>();
+
+    /// <summary>The items that are strings, in order.</summary>
+    public IEnumerable<MDLString> Strings() => _items.OfType<MDLString>();
+
+    /// <summary>The items that are integers, in order.</summary>
+    public IEnumerable<MDLInteger> Integers() => _items.OfType<MDLInteger>();
+
+    /// <summary>The items that are floats, in order.</summary>
+    public IEnumerable<MDLFloat> Floats() => _items.OfType<MDLFloat>();
+
+    /// <summary>The items that are booleans, in order.</summary>
+    public IEnumerable<MDLBoolean> Booleans() => _items.OfType<MDLBoolean>();
 }

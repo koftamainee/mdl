@@ -7,7 +7,7 @@
     <RootNamespace>MDL.Core</RootNamespace>
 
     <PackageId>Koftamainee.MDL.Core</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>Core data model for the MDL (Mantle Data Language) parser.</Description>

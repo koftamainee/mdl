@@ -7,7 +7,7 @@
     <RootNamespace>MDL.Content</RootNamespace>
 
     <PackageId>Koftamainee.MDL.Content</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>MonoGame runtime content reader for MDL documents.</Description>

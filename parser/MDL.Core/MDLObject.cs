@@ -50,4 +50,47 @@ public sealed class MDLObject : MDLValue
 
     /// <summary>Appends an existing pair to the object.</summary>
     public void Add(MDLPair pair) => _pairs.Add(pair);
+
+    /// <summary>
+    /// Gets the string associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not a string.
+    /// </summary>
+    public MDLString? GetString(string key) => GetValue(key) as MDLString;
+
+    /// <summary>
+    /// Gets the object associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not an object.
+    /// </summary>
+    public MDLObject? GetObject(string key) => GetValue(key) as MDLObject;
+
+    /// <summary>
+    /// Gets the list associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not a list.
+    /// </summary>
+    public MDLList? GetList(string key) => GetValue(key) as MDLList;
+
+    /// <summary>
+    /// Gets the integer associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not an integer.
+    /// </summary>
+    public MDLInteger? GetInteger(string key) => GetValue(key) as MDLInteger;
+
+    /// <summary>
+    /// Gets the float associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not a float.
+    /// </summary>
+    public MDLFloat? GetFloat(string key) => GetValue(key) as MDLFloat;
+
+    /// <summary>
+    /// Gets the boolean associated with <paramref name="key"/>, or <see langword="null"/>
+    /// when the key is absent or is not a boolean.
+    /// </summary>
+    public MDLBoolean? GetBoolean(string key) => GetValue(key) as MDLBoolean;
+
+    /// <summary>The values in declaration order.</summary>
+    public IEnumerable<MDLValue> Values()
+    {
+        foreach (var pair in _pairs)
+            yield return pair.Value;
+    }
 }
