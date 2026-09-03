@@ -26,6 +26,9 @@ public sealed class MDLList : MDLValue
     /// <summary>The items that are objects, in order.</summary>
     public IEnumerable<MDLObject> Objects() => _items.OfType<MDLObject>();
 
+    /// <summary>The items that are lists, in order.</summary>
+    public IEnumerable<MDLList> Lists() => _items.OfType<MDLList>();
+
     /// <summary>The items that are strings, in order.</summary>
     public IEnumerable<MDLString> Strings() => _items.OfType<MDLString>();
 

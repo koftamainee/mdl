@@ -5,9 +5,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Serializer</RootNamespace>
-
     <PackageId>Koftamainee.MDL.Serializer</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>Reflection-based deserializer mapping MDL documents to CLR objects.</Description>
@@ -19,9 +18,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />
-    <ProjectReference Include="..\MDL.Parser\MDL.Parser.csproj" />
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj"/>
+    <ProjectReference Include="..\MDL.Parser\MDL.Parser.csproj"/>
   </ItemGroup>
 </Project>

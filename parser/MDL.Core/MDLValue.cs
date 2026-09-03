@@ -98,4 +98,17 @@ public abstract class MDLValue
     /// otherwise <see langword="null"/>.
     /// </summary>
     public bool? AsBool() => this is MDLBoolean b ? b.Value : null;
+
+
+    /// <summary>
+    /// Returns the underlying object when this value is an <see cref="MDLObject"/>,
+    /// otherwise <see langword="null"/>.
+    /// </summary>
+    public MDLObject? AsObject() => this is MDLObject o ? o : null;
+
+    /// <summary>
+    /// Returns the underlying list when this value is an <see cref="MDLList"/>,
+    /// otherwise <see langword="null"/>.
+    /// </summary>
+    public MDLList? AsList() => this is MDLList l ? l : null;
 }

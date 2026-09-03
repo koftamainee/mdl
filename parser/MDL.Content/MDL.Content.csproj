@@ -5,9 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Content</RootNamespace>
-
     <PackageId>Koftamainee.MDL.Content</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>MonoGame runtime content reader for MDL documents.</Description>
@@ -19,12 +18,10 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="MonoGame.Framework" Version="3.8.5.1" />
+    <PackageReference Include="MonoGame.Framework" Version="3.8.5.1"/>
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj"/>
   </ItemGroup>
 </Project>

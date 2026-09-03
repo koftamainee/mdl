@@ -5,9 +5,8 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Parser</RootNamespace>
-
     <PackageId>Koftamainee.MDL.Parser</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>Recursive-descent parser for the MDL (Mantle Data Language).</Description>
@@ -19,8 +18,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj"/>
   </ItemGroup>
 </Project>
