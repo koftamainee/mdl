@@ -1,4 +1,4 @@
-namespace MDL.Core.Model;
+namespace MDL.Core;
 
 /// <summary>
 /// Discriminator tag for an <see cref="MDLValue"/> node.

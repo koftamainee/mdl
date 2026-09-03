@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj"/>
+  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
-    <RootNamespace>MDL.Core</RootNamespace>
   </PropertyGroup>
 </Project>

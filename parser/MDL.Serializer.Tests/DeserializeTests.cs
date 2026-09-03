@@ -1,7 +1,8 @@
-using MDL.Core.Serialization;
+using MDL.Parser;
+using MDL.Serializer;
 using Xunit;
 
-namespace MDL.Core.Tests
+namespace MDL.Serializer.Tests
 {
     public class DeserializeTests
     {
@@ -23,7 +24,7 @@ namespace MDL.Core.Tests
         [Fact]
         public void Deserialize_Primitives_AreMapped()
         {
-            var c = MDL.Load<Character>("assets/character.mdl");
+            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal("Grom", c.Name);
             Assert.Equal(100, c.Hp);
             Assert.Equal(5.5, c.Speed);
@@ -33,14 +34,14 @@ namespace MDL.Core.Tests
         [Fact]
         public void Deserialize_Enum_ByString()
         {
-            var c = MDL.Load<Character>("assets/character.mdl");
+            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(Faction.Orcs, c.Faction);
         }
 
         [Fact]
         public void Deserialize_AttributeName_AndIgnore()
         {
-            var c = MDL.Load<Character>("assets/character.mdl");
+            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(Faction.Orcs, c.Faction);
             Assert.Equal("default", c.Ignored);
         }
@@ -48,14 +49,14 @@ namespace MDL.Core.Tests
         [Fact]
         public void Deserialize_ListToArray()
         {
-            var c = MDL.Load<Character>("assets/character.mdl");
+            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(new[] { "sword", "shield" }, c.Tags);
         }
 
         [Fact]
         public void Deserialize_FromString()
         {
-            var c = MDL.Deserialize<Character>("name \"X\"\nhp 5\n");
+            var c = MDLSerializer.Deserialize<Character>("name \"X\"\nhp 5\n");
             Assert.Equal("X", c.Name);
             Assert.Equal(5, c.Hp);
         }
@@ -63,7 +64,7 @@ namespace MDL.Core.Tests
         [Fact]
         public void Deserialize_MissingKey_KeepsDefault()
         {
-            var c = MDL.Deserialize<Character>("name \"X\"\n");
+            var c = MDLSerializer.Deserialize<Character>("name \"X\"\n");
             Assert.Equal(0, c.Hp);
         }
     }

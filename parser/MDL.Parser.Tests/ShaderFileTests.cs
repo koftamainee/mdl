@@ -1,14 +1,17 @@
-using MDL.Core.Model;
+using MDL.Core;
+using MDL.Parser;
 using Xunit;
 
-namespace MDL.Core.Tests
+namespace MDL.Parser.Tests
 {
     public class ShaderFileTests
     {
+        private static string ShaderSource() => System.IO.File.ReadAllText("assets/shader.mdl");
+
         [Fact]
         public void Parse_Shader_AllConstructsAreCorrect()
         {
-            var doc = MDL.Read("assets/shader.mdl");
+            var doc = new MdlParser().Parse(ShaderSource());
 
             Assert.Equal(8, doc.Root.Count);
             Assert.IsType<MDLString>(doc.Root.GetValue("shader"));
@@ -35,7 +38,7 @@ namespace MDL.Core.Tests
         [Fact]
         public void Parse_Shader_ListsAndQuotedStrings()
         {
-            var doc = MDL.Read("assets/shader.mdl");
+            var doc = new MdlParser().Parse(ShaderSource());
 
             var list = Assert.IsType<MDLList>(doc.Root.GetValue("some_list"));
             Assert.Equal(2, list.Count);
@@ -50,7 +53,7 @@ namespace MDL.Core.Tests
         [Fact]
         public void Parse_Shader_RawStrings()
         {
-            var doc = MDL.Read("assets/shader.mdl");
+            var doc = new MdlParser().Parse(ShaderSource());
 
             Assert.Equal(@"C:\Projects\Mantle", ((MDLString)doc.Root.GetValue("windows_path")!).Value);
 

@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MDL.Core.Serialization;
+using MDL.Parser;
+using MDL.Serializer;
 using Xunit;
 
-namespace MDL.Core.Tests
+namespace MDL.Serializer.Tests
 {
     public class TextureRegion
     {
@@ -33,7 +34,7 @@ namespace MDL.Core.Tests
         [Fact]
         public void Deserialize_AtlasMdl_PopulatesAllData()
         {
-            var atlas = MDL.Load<TextureAtlas>("assets/atlas.mdl");
+            var atlas = MDLSerializer.Deserialize<TextureAtlas>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/atlas.mdl")));
 
 
             Assert.Equal("Images/Atlas", atlas.Texture);
