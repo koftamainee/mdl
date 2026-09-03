@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>MDL.Serializer</RootNamespace>
+    <RootNamespace>MDL.Content.Pipeline</RootNamespace>
 
-    <PackageId>Koftamainee.MDL.Serializer</PackageId>
+    <PackageId>Koftamainee.MDL.Content.Pipeline</PackageId>
     <Version>1.0.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
-    <Description>Reflection-based deserializer mapping MDL documents to CLR objects.</Description>
-    <PackageTags>mdl;mantle;data-language;serializer;deserializer</PackageTags>
+    <Description>MonoGame content pipeline extension (importer/processor/writer) for MDL files.</Description>
+    <PackageTags>mdl;mantle;monogame;content-pipeline;importer;processor</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
@@ -19,6 +19,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework" Version="3.8.5.1" />
+    <PackageReference Include="MonoGame.Framework.Content.Pipeline" Version="3.8.5.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />

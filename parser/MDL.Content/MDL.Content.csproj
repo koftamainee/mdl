@@ -2,16 +2,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>MDL.Core</RootNamespace>
+    <RootNamespace>MDL.Content</RootNamespace>
 
-    <PackageId>Koftamainee.MDL.Core</PackageId>
+    <PackageId>Koftamainee.MDL.Content</PackageId>
     <Version>1.0.0</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
-    <Description>Core data model for the MDL (Mantle Data Language) parser.</Description>
-    <PackageTags>mdl;mantle;data-language;parser;core</PackageTags>
+    <Description>MonoGame runtime content reader for MDL documents.</Description>
+    <PackageTags>mdl;mantle;monogame;content;reader</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
@@ -19,4 +19,12 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework" Version="3.8.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />
+  </ItemGroup>
 </Project>

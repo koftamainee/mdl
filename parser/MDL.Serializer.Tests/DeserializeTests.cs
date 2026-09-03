@@ -24,7 +24,7 @@ namespace MDL.Serializer.Tests
         [Fact]
         public void Deserialize_Primitives_AreMapped()
         {
-            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
+            var c = MDLSerializer.Deserialize<Character>(new MDLParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal("Grom", c.Name);
             Assert.Equal(100, c.Hp);
             Assert.Equal(5.5, c.Speed);
@@ -34,14 +34,14 @@ namespace MDL.Serializer.Tests
         [Fact]
         public void Deserialize_Enum_ByString()
         {
-            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
+            var c = MDLSerializer.Deserialize<Character>(new MDLParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(Faction.Orcs, c.Faction);
         }
 
         [Fact]
         public void Deserialize_AttributeName_AndIgnore()
         {
-            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
+            var c = MDLSerializer.Deserialize<Character>(new MDLParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(Faction.Orcs, c.Faction);
             Assert.Equal("default", c.Ignored);
         }
@@ -49,7 +49,7 @@ namespace MDL.Serializer.Tests
         [Fact]
         public void Deserialize_ListToArray()
         {
-            var c = MDLSerializer.Deserialize<Character>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
+            var c = MDLSerializer.Deserialize<Character>(new MDLParser().Parse(System.IO.File.ReadAllText("assets/character.mdl")));
             Assert.Equal(new[] { "sword", "shield" }, c.Tags);
         }
 

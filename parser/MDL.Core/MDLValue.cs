@@ -9,7 +9,7 @@ namespace MDL.Core;
 public abstract class MDLValue
 {
     /// <summary>The discriminator tag for this value node.</summary>
-    public abstract MdlValueKind Kind { get; }
+    public abstract MDLValueKind Kind { get; }
 
     /// <summary>
     /// Allocates a new <see cref="MDLInteger"/> value.

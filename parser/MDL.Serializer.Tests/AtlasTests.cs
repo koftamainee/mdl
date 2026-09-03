@@ -32,9 +32,9 @@ namespace MDL.Serializer.Tests
     public class AtlasTests
     {
         [Fact]
-        public void Deserialize_AtlasMdl_PopulatesAllData()
+        public void Deserialize_AtlasMDL_PopulatesAllData()
         {
-            var atlas = MDLSerializer.Deserialize<TextureAtlas>(new MdlParser().Parse(System.IO.File.ReadAllText("assets/atlas.mdl")));
+            var atlas = MDLSerializer.Deserialize<TextureAtlas>(new MDLParser().Parse(System.IO.File.ReadAllText("assets/atlas.mdl")));
 
 
             Assert.Equal("Images/Atlas", atlas.Texture);

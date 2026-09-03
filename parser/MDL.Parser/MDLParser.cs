@@ -8,7 +8,7 @@ namespace MDL.Parser;
 /// Recursive-descent parser for the MDL language. Produces an
 /// <see cref="MDLDocument"/> matching the grammar defined in <c>grammar.js</c>.
 /// </summary>
-public sealed class MdlParser
+public sealed class MDLParser
 {
     private string _src = string.Empty;
     private int _pos;
@@ -18,7 +18,7 @@ public sealed class MdlParser
     /// <summary>
     /// Parses <paramref name="source"/> into a complete MDL document.
     /// </summary>
-    /// <exception cref="MdlParseException">When the source is not valid MDL.</exception>
+    /// <exception cref="MDLParserException">When the source is not valid MDL.</exception>
     public MDLDocument Parse(string source)
     {
         _src = source ?? throw new ArgumentNullException(nameof(source));
@@ -351,6 +351,6 @@ public sealed class MdlParser
         }
     }
 
-    private MdlParseException Error(string message)
-        => new MdlParseException(message, _line, _col);
+    private MDLParserException Error(string message)
+        => new MDLParserException(message, _line, _col);
 }

@@ -10,7 +10,7 @@ public sealed class MDLString : MDLValue
         Value = value;
     }
 
-    public override MdlValueKind Kind => MdlValueKind.String;
+    public override MDLValueKind Kind => MDLValueKind.String;
 
     /// <summary>The string content with escapes already resolved.</summary>
     public string Value { get; }

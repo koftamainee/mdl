@@ -7,7 +7,7 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLList : MDLValue
 {
-    public override MdlValueKind Kind => MdlValueKind.List;
+    public override MDLValueKind Kind => MDLValueKind.List;
     private readonly List<MDLValue> _items = new List<MDLValue>();
 
     /// <summary>The contained items.</summary>

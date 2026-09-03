@@ -10,7 +10,7 @@ public sealed class MDLBoolean : MDLValue
         Value = value;
     }
 
-    public override MdlValueKind Kind => MdlValueKind.Boolean;
+    public override MDLValueKind Kind => MDLValueKind.Boolean;
 
     /// <summary>The boolean value.</summary>
     public bool Value { get; }

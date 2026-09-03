@@ -6,9 +6,9 @@ namespace MDL.Parser;
 /// Thrown when MDL source text cannot be parsed. Carries the position of
 /// the problem in line/column form to aid diagnostics.
 /// </summary>
-public sealed class MdlParseException : Exception
+public sealed class MDLParserException : Exception
 {
-    public MdlParseException(string message, int line, int column)
+    public MDLParserException(string message, int line, int column)
         : base(message)
     {
         Line = line;

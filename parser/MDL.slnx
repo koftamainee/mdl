@@ -1,8 +1,10 @@
-<?xml version="1.0"?>
+
 <Solution>
-  <Project Path="MDL.Core/MDL.Core.csproj"/>
-  <Project Path="MDL.Parser/MDL.Parser.csproj"/>
-  <Project Path="MDL.Parser.Tests/MDL.Parser.Tests.csproj"/>
-  <Project Path="MDL.Serializer/MDL.Serializer.csproj"/>
-  <Project Path="MDL.Serializer.Tests/MDL.Serializer.Tests.csproj"/>
+  <Project Path="MDL.Core/MDL.Core.csproj" />
+  <Project Path="MDL.Parser/MDL.Parser.csproj" />
+  <Project Path="MDL.Parser.Tests/MDL.Parser.Tests.csproj" />
+  <Project Path="MDL.Serializer/MDL.Serializer.csproj" />
+  <Project Path="MDL.Content/MDL.Content.csproj" />
+  <Project Path="MDL.Content.Pipeline/MDL.Content.Pipeline.csproj" />
+  <Project Path="MDL.Serializer.Tests/MDL.Serializer.Tests.csproj" />
 </Solution>

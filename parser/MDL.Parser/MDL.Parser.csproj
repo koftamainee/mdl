@@ -1,9 +1,26 @@
 <?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj"/>
-  </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MDL.Parser</RootNamespace>
+
+    <PackageId>Koftamainee.MDL.Parser</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>koftamainee</Authors>
+    <Company>koftamainee</Company>
+    <Description>Recursive-descent parser for the MDL (Mantle Data Language).</Description>
+    <PackageTags>mdl;mantle;data-language;parser</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/koftamainee/mdl</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MDL.Core\MDL.Core.csproj" />
+  </ItemGroup>
 </Project>

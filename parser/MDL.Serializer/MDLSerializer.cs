@@ -16,8 +16,8 @@ namespace MDL.Serializer;
 /// </summary>
 public static class MDLSerializer
 {
-    private static readonly System.Threading.ThreadLocal<MdlParser> Parser =
-        new System.Threading.ThreadLocal<MdlParser>(() => new MdlParser());
+    private static readonly System.Threading.ThreadLocal<MDLParser> Parser =
+        new System.Threading.ThreadLocal<MDLParser>(() => new MDLParser());
     private static readonly ConcurrentDictionary<Type, ObjectMapper> Mappers =
         new ConcurrentDictionary<Type, ObjectMapper>();
 
@@ -58,7 +58,7 @@ public static class MDLSerializer
     /// Parses <paramref name="source"/> and converts it into an instance of
     /// type <typeparamref name="T"/>.
     /// </summary>
-    public static T Deserialize<T>(string source) => (T)FromValue(typeof(T), Parser.Value.Parse(source).Root)!;
+    public static T Deserialize<T>(string source) => (T)FromValue(typeof(T), Parser.Value?.Parse(source).Root)!;
 
     /// <summary>
     /// Parses the content of <paramref name="stream"/> and converts it into an
@@ -68,7 +68,7 @@ public static class MDLSerializer
     {
         if (stream == null) throw new ArgumentNullException(nameof(stream));
         using var reader = new StreamReader(stream);
-        return (T)FromValue(typeof(T), Parser.Value.Parse(reader.ReadToEnd()).Root)!;
+        return (T)FromValue(typeof(T), Parser.Value?.Parse(reader.ReadToEnd()).Root)!;
     }
 
     private static object? FromValue(Type type, MDLValue? value)
@@ -180,7 +180,7 @@ public static class MDLSerializer
             var result = Activator.CreateInstance(concrete);
             var add = concrete.GetMethod("Add");
             foreach (var item in list.Items)
-                add.Invoke(result, new[] { FromValue(elementType, item) });
+                add?.Invoke(result, new[] { FromValue(elementType, item) });
             return result;
         }
 
@@ -253,7 +253,7 @@ public static class MDLSerializer
             {
                 Key = key,
                 TargetType = prop.PropertyType,
-                Setter = (inst, val) => setter.Invoke(inst, new[] { val }),
+                Setter = (inst, val) => setter?.Invoke(inst, new[] { val }),
             });
         }
 

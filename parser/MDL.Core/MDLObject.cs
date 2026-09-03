@@ -9,7 +9,7 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLObject : MDLValue
 {
-    public override MdlValueKind Kind => MdlValueKind.Object;
+    public override MDLValueKind Kind => MDLValueKind.Object;
     private readonly List<MDLPair> _pairs = new List<MDLPair>();
 
     /// <summary>The pairs in declaration order.</summary>

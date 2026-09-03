@@ -11,7 +11,7 @@ namespace MDL.Parser.Tests
         [Fact]
         public void Parse_Shader_AllConstructsAreCorrect()
         {
-            var doc = new MdlParser().Parse(ShaderSource());
+            var doc = new MDLParser().Parse(ShaderSource());
 
             Assert.Equal(8, doc.Root.Count);
             Assert.IsType<MDLString>(doc.Root.GetValue("shader"));
@@ -38,7 +38,7 @@ namespace MDL.Parser.Tests
         [Fact]
         public void Parse_Shader_ListsAndQuotedStrings()
         {
-            var doc = new MdlParser().Parse(ShaderSource());
+            var doc = new MDLParser().Parse(ShaderSource());
 
             var list = Assert.IsType<MDLList>(doc.Root.GetValue("some_list"));
             Assert.Equal(2, list.Count);
@@ -53,7 +53,7 @@ namespace MDL.Parser.Tests
         [Fact]
         public void Parse_Shader_RawStrings()
         {
-            var doc = new MdlParser().Parse(ShaderSource());
+            var doc = new MDLParser().Parse(ShaderSource());
 
             Assert.Equal(@"C:\Projects\Mantle", ((MDLString)doc.Root.GetValue("windows_path")!).Value);
 
