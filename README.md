@@ -51,4 +51,4 @@ hello2 `Hello \` World!`
 - Booleans like true or false can be parsed like Bools and Strings. Otherwise - error.
 
 ## Parser
-Format is easy enough so Reading and Writing can be left as en exercise for the reader.
+Example parser in C# available in `parser/`
