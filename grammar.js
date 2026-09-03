@@ -20,7 +20,7 @@ export default grammar({
 
     pair: $ => seq($.key, $._value),
 
-    key: $ => /[A-Za-z_][A-Za-z0-9_]*/,
+    key: $ => /[A-Za-z_][A-Za-z0-9_-]*/,
 
     _value: $ => choice(
       $.object,

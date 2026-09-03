@@ -96,7 +96,7 @@ public sealed class MDLParser
             {
                 Advance();
             }
-            else if (_pos > start && c >= '0' && c <= '9')
+            else if (_pos > start && c >= '0' && c <= '9' || c == '-')
             {
                 Advance();
             }
