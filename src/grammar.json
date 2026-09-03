@@ -23,8 +23,21 @@
       ]
     },
     "key": {
-      "type": "PATTERN",
-      "value": "[A-Za-z_][A-Za-z0-9_]*"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[A-Za-z_][A-Za-z0-9_-]*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "raw_string"
+        }
+      ]
     },
     "_value": {
       "type": "CHOICE",

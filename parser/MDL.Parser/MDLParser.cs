@@ -88,10 +88,24 @@ public sealed class MDLParser
     private string ParseKey()
     {
         SkipTrivia();
+
+        if (_pos >= _src.Length)
+            throw Error("expected a key");
+
+        char c = _src[_pos];
+        if (c == '"')
+        {
+            return ParseQuotedString();
+        }
+        if (c == '`')
+        {
+            return ParseRawString();
+        }
+
         int start = _pos;
         while (_pos < _src.Length)
         {
-            char c = _src[_pos];
+            c = _src[_pos];
             if (c == '_' || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
             {
                 Advance();

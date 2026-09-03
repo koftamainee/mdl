@@ -1,5 +1,24 @@
 [
   {
+    "type": "key",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "raw_string",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "list",
     "named": true,
     "fields": {},
@@ -132,10 +151,6 @@
     "type": "comment",
     "named": true,
     "extra": true
-  },
-  {
-    "type": "key",
-    "named": true
   },
   {
     "type": "number",
