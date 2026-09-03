@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Solution>
+  <Project Path="MDL.Core/MDL.Core.csproj"/>
+  <Project Path="MDL.Core.Tests/MDL.Core.Tests.csproj"/>
+</Solution>
