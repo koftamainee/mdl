@@ -86,7 +86,10 @@ If nil, `tab-width' (which EditorConfig sets per buffer) is used."
   (treesit-font-lock-rules
    :language 'mdl
    :feature 'key
-   '((key) @font-lock-keyword-face)
+   :override t
+   '((key) @font-lock-keyword-face
+     (key (string) @font-lock-keyword-face)
+     (key (raw_string) @font-lock-keyword-face))
 
    :language 'mdl
    :feature 'string
@@ -176,7 +179,7 @@ falling back to `fundamental-mode'."
                 '((comment)
                   (key)
                   (string constant)
-                  (comment)))
+                  (key string constant comment)))
 
     (treesit-major-mode-setup)))
 
