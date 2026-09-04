@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Serializer</RootNamespace>
     <PackageId>Koftamainee.MDL.Serializer</PackageId>
-    <Version>1.2.3</Version>
+    <Version>1.2.4</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>Reflection-based deserializer mapping MDL documents to CLR objects.</Description>

@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Parser</RootNamespace>
     <PackageId>Koftamainee.MDL.Parser</PackageId>
-    <Version>1.2.3</Version>
+    <Version>1.2.4</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>Recursive-descent parser for the MDL (Mantle Data Language).</Description>

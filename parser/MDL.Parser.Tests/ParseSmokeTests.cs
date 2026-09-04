@@ -20,7 +20,7 @@ namespace MDL.Parser.Tests
         {
             var doc = new MDLParser().Parse("player { hp 100\n speed 5.5 }");
 
-            var player = doc.Root.GetValue("player");
+            var player = doc.Root.TryGetValue("player");
             Assert.IsType<MDLObject>(player);
             Assert.Equal(2, ((MDLObject)player).Count);
         }
@@ -30,7 +30,7 @@ namespace MDL.Parser.Tests
         {
             var doc = new MDLParser().Parse("tags [a b \"c d\"]");
 
-            var tags = Assert.IsType<MDLList>(doc.Root.GetValue("tags"));
+            var tags = Assert.IsType<MDLList>(doc.Root.TryGetValue("tags"));
             Assert.Equal(3, tags.Count);
         }
 
@@ -39,13 +39,13 @@ namespace MDL.Parser.Tests
         {
             var doc = new MDLParser().Parse("i 10\nf 1.5\ne 1e3\nb true\ns \"x\\\"y\"");
 
-            Assert.IsType<MDLInteger>(doc.Root.GetValue("i"));
-            Assert.Equal(10L, ((MDLInteger)doc.Root.GetValue("i")!).Value);
-            Assert.IsType<MDLFloat>(doc.Root.GetValue("f"));
-            Assert.IsType<MDLFloat>(doc.Root.GetValue("e"));
-            Assert.Equal(1e3, ((MDLFloat)doc.Root.GetValue("e")!).Value);
-            Assert.IsType<MDLBoolean>(doc.Root.GetValue("b"));
-            Assert.Equal("x\"y", ((MDLString)doc.Root.GetValue("s")!).Value);
+            Assert.IsType<MDLInteger>(doc.Root.TryGetValue("i"));
+            Assert.Equal(10L, ((MDLInteger)doc.Root.TryGetValue("i")!).Value);
+            Assert.IsType<MDLFloat>(doc.Root.TryGetValue("f"));
+            Assert.IsType<MDLFloat>(doc.Root.TryGetValue("e"));
+            Assert.Equal(1e3, ((MDLFloat)doc.Root.TryGetValue("e")!).Value);
+            Assert.IsType<MDLBoolean>(doc.Root.TryGetValue("b"));
+            Assert.Equal("x\"y", ((MDLString)doc.Root.TryGetValue("s")!).Value);
         }
 
         [Fact]
@@ -60,7 +60,7 @@ namespace MDL.Parser.Tests
         {
             var doc = new MDLParser().Parse("kind hero");
 
-            var kind = Assert.IsType<MDLString>(doc.Root.GetValue("kind"));
+            var kind = Assert.IsType<MDLString>(doc.Root.TryGetValue("kind"));
             Assert.Equal("hero", kind.Value);
         }
 
