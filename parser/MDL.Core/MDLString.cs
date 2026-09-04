@@ -5,11 +5,13 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLString : MDLValue
 {
+    /// <summary>Creates a new string value.</summary>
     public MDLString(string value)
     {
         Value = value;
     }
 
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.String;
 
     /// <summary>The string content with escapes already resolved.</summary>

@@ -6,19 +6,23 @@ using MDL.Core;
 namespace MDL.Content.Pipeline;
 
 
+/// <summary>Binary content writer for <see cref="MDLDocument"/>.</summary>
 [ContentTypeWriter]
 public class MDLWriter : ContentTypeWriter<MDLDocument>
 {
+    /// <inheritdoc/>
     public override string GetRuntimeType(TargetPlatform targetPlatform)
     {
         return typeof(MDLDocument).AssemblyQualifiedName!;
     }
 
+    /// <inheritdoc/>
     public override string GetRuntimeReader(TargetPlatform targetPlatform)
     {
         return "MDL.Content.MDLReader, MDL.Content";
     }
 
+    /// <inheritdoc/>
     protected override void Write(ContentWriter output, MDLDocument value)
     {
         output.Write((byte)value.Root.Kind);

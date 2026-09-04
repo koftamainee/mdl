@@ -9,6 +9,7 @@ namespace MDL.Serializer;
 [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
 public sealed class MDLNameAttribute : Attribute
 {
+    /// <summary>Creates a new name attribute.</summary>
     public MDLNameAttribute(string name)
     {
         Name = name;

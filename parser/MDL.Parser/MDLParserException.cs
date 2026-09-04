@@ -8,6 +8,7 @@ namespace MDL.Parser;
 /// </summary>
 public sealed class MDLParserException : Exception
 {
+    /// <summary>Creates a new parser exception.</summary>
     public MDLParserException(string message, int line, int column)
         : base(message)
     {

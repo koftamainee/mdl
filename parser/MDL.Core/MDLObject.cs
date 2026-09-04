@@ -9,6 +9,7 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLObject : MDLValue
 {
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.Object;
     private readonly List<MDLPair> _pairs = new List<MDLPair>();
 
@@ -58,6 +59,12 @@ public sealed class MDLObject : MDLValue
     public MDLString? GetString(string key) => GetValue(key) as MDLString;
 
     /// <summary>
+    /// Gets the string value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a string.
+    /// </summary>
+    public string GetString(string key, string defaultValue) => GetValue(key)?.AsString() ?? defaultValue;
+
+    /// <summary>
     /// Gets the object associated with <paramref name="key"/>, or <see langword="null"/>
     /// when the key is absent or is not an object.
     /// </summary>
@@ -86,6 +93,36 @@ public sealed class MDLObject : MDLValue
     /// when the key is absent or is not a boolean.
     /// </summary>
     public MDLBoolean? GetBoolean(string key) => GetValue(key) as MDLBoolean;
+
+    /// <summary>
+    /// Gets the integer value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a number.
+    /// </summary>
+    public int GetInt32(string key, int defaultValue = 0) => GetValue(key)?.AsInt32() ?? defaultValue;
+
+    /// <summary>
+    /// Gets the integer value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a number.
+    /// </summary>
+    public long GetInt64(string key, long defaultValue = 0) => GetValue(key)?.AsInt64() ?? defaultValue;
+
+    /// <summary>
+    /// Gets the float value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a number.
+    /// </summary>
+    public float GetFloat(string key, float defaultValue) => GetValue(key)?.AsFloat() ?? defaultValue;
+
+    /// <summary>
+    /// Gets the double value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a number.
+    /// </summary>
+    public double GetDouble(string key, double defaultValue = 0d) => GetValue(key)?.AsDouble() ?? defaultValue;
+
+    /// <summary>
+    /// Gets the boolean value associated with <paramref name="key"/>,
+    /// or <paramref name="defaultValue"/> when the key is absent or is not a boolean.
+    /// </summary>
+    public bool GetBool(string key, bool defaultValue = false) => GetValue(key)?.AsBool() ?? defaultValue;
 
     /// <summary>The values in declaration order.</summary>
     public IEnumerable<MDLValue> Values()

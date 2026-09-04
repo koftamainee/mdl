@@ -8,6 +8,7 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLList : MDLValue
 {
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.List;
     private readonly List<MDLValue> _items = new List<MDLValue>();
 
@@ -29,15 +30,51 @@ public sealed class MDLList : MDLValue
     /// <summary>The items that are lists, in order.</summary>
     public IEnumerable<MDLList> Lists() => _items.OfType<MDLList>();
 
-    /// <summary>The items that are strings, in order.</summary>
-    public IEnumerable<MDLString> Strings() => _items.OfType<MDLString>();
+    /// <summary>String values in order.</summary>
+    public IEnumerable<string> Strings()
+    {
+        foreach (var item in _items)
+            if (item is MDLString s)
+                yield return s.Value;
+    }
 
-    /// <summary>The items that are integers, in order.</summary>
-    public IEnumerable<MDLInteger> Integers() => _items.OfType<MDLInteger>();
+    /// <summary>Int32 values in order.</summary>
+    public IEnumerable<int> Ints32()
+    {
+        foreach (var item in _items)
+            if (item is MDLInteger i)
+                yield return (int)i.Value;
+    }
 
-    /// <summary>The items that are floats, in order.</summary>
-    public IEnumerable<MDLFloat> Floats() => _items.OfType<MDLFloat>();
+    /// <summary>Int64 values in order.</summary>
+    public IEnumerable<long> Ints64()
+    {
+        foreach (var item in _items)
+            if (item is MDLInteger i)
+                yield return i.Value;
+    }
 
-    /// <summary>The items that are booleans, in order.</summary>
-    public IEnumerable<MDLBoolean> Booleans() => _items.OfType<MDLBoolean>();
+    /// <summary>Float values in order.</summary>
+    public IEnumerable<float> Floats()
+    {
+        foreach (var item in _items)
+            if (item is MDLFloat f)
+                yield return (float)f.Value;
+    }
+
+    /// <summary>Double values in order.</summary>
+    public IEnumerable<double> Doubles()
+    {
+        foreach (var item in _items)
+            if (item is MDLFloat f)
+                yield return f.Value;
+    }
+
+    /// <summary>Boolean values in order.</summary>
+    public IEnumerable<bool> Bools()
+    {
+        foreach (var item in _items)
+            if (item is MDLBoolean b)
+                yield return b.Value;
+    }
 }

@@ -181,7 +181,7 @@ public static class MDLSerializer
             var add = concrete.GetMethod("Add");
             foreach (var item in list.Items)
                 add?.Invoke(result, new[] { FromValue(elementType, item) });
-            return result;
+            return result!;
         }
 
         throw new InvalidOperationException($"Type {type} is not a supported list target.");
@@ -203,7 +203,7 @@ public static class MDLSerializer
             var val = FromValue(valueType, pair.Value);
             add.Invoke(result, new[] { key, val });
         }
-        return result;
+        return result!;
     }
 
     private static object FromString(Type type, string text)

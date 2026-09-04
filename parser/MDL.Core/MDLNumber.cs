@@ -11,11 +11,13 @@ public interface IMDLNumber { }
 /// </summary>
 public sealed class MDLInteger : MDLValue, IMDLNumber
 {
+    /// <summary>Creates a new integer value.</summary>
     public MDLInteger(long value)
     {
         Value = value;
     }
 
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.Integer;
 
     /// <summary>The integer value.</summary>
@@ -28,11 +30,13 @@ public sealed class MDLInteger : MDLValue, IMDLNumber
 /// </summary>
 public sealed class MDLFloat : MDLValue, IMDLNumber
 {
+    /// <summary>Creates a new float value.</summary>
     public MDLFloat(double value)
     {
         Value = value;
     }
 
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.Float;
 
     /// <summary>The floating-point value.</summary>

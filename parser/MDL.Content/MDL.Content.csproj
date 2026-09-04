@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>MDL.Content</RootNamespace>
     <PackageId>Koftamainee.MDL.Content</PackageId>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
     <Authors>koftamainee</Authors>
     <Company>koftamainee</Company>
     <Description>MonoGame runtime content reader for MDL documents.</Description>

@@ -5,6 +5,7 @@ namespace MDL.Core;
 /// </summary>
 public readonly struct MDLPair
 {
+    /// <summary>Creates a new key/value pair.</summary>
     public MDLPair(string key, MDLValue value)
     {
         Key = key;

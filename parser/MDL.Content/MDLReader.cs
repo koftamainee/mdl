@@ -4,8 +4,12 @@ using MDL.Core;
 
 namespace MDL.Content;
 
+/// <summary>
+/// Deserializes a binary-encoded <see cref="MDLDocument"/> at runtime.
+/// </summary>
 public class MDLReader : ContentTypeReader<MDLDocument>
 {
+    /// <inheritdoc/>
     protected override MDLDocument Read(ContentReader input, MDLDocument existingInstance)
     {
         // Object kind

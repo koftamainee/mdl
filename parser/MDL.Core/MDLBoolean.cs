@@ -5,11 +5,13 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLBoolean : MDLValue
 {
+    /// <summary>Creates a new boolean value.</summary>
     public MDLBoolean(bool value)
     {
         Value = value;
     }
 
+    /// <inheritdoc/>
     public override MDLValueKind Kind => MDLValueKind.Boolean;
 
     /// <summary>The boolean value.</summary>

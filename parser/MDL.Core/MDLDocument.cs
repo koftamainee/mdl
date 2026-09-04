@@ -6,11 +6,13 @@ namespace MDL.Core;
 /// </summary>
 public sealed class MDLDocument
 {
+    /// <summary>Creates a document with no known source path.</summary>
     public MDLDocument(MDLObject root)
         : this(root, null)
     {
     }
 
+    /// <summary>Creates a document with an optional source path.</summary>
     public MDLDocument(MDLObject root, string? sourcePath)
     {
         Root = root;
